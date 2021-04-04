@@ -48,6 +48,7 @@ namespace Calculator
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.result = new System.Windows.Forms.TextBox();
+            this.equation = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button7
@@ -81,6 +82,7 @@ namespace Calculator
             this.button0.TabIndex = 3;
             this.button0.Text = "0";
             this.button0.UseVisualStyleBackColor = true;
+            this.button0.Click += new System.EventHandler(this.button_Click);
             // 
             // button_multiply
             // 
@@ -179,6 +181,7 @@ namespace Calculator
             this.button_Clear.TabIndex = 12;
             this.button_Clear.Text = "C";
             this.button_Clear.UseVisualStyleBackColor = true;
+            this.button_Clear.Click += new System.EventHandler(this.button_Clear_Click);
             // 
             // button_CE
             // 
@@ -254,12 +257,24 @@ namespace Calculator
             this.result.Size = new System.Drawing.Size(248, 31);
             this.result.TabIndex = 19;
             this.result.Text = "0";
+            this.result.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.result.TextChanged += new System.EventHandler(this.result_TextChanged);
+            // 
+            // equation
+            // 
+            this.equation.AutoSize = true;
+            this.equation.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.equation.Location = new System.Drawing.Point(13, 13);
+            this.equation.Name = "equation";
+            this.equation.Size = new System.Drawing.Size(0, 21);
+            this.equation.TabIndex = 20;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(271, 237);
+            this.Controls.Add(this.equation);
             this.Controls.Add(this.result);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
@@ -311,6 +326,7 @@ namespace Calculator
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox result;
+        private System.Windows.Forms.Label equation;
     }
 }
 

@@ -107,13 +107,14 @@ namespace Calculator
 
         }
 
-       
+        //Clicker for all the numbers and decimal
         private void button_Click(object sender, EventArgs e)
         {
 
             if (result.Text == "0" || (operation_pressed))
                 result.Clear(); //@g Clear method
 
+            operation_pressed = false;
             Button b = (Button)sender;
             result.Text = result.Text + b.Text;
         }
@@ -128,11 +129,14 @@ namespace Calculator
             Button b = (Button)sender; // syntax?
             operation = b.Text;
             value = Double.Parse(result.Text);
-            operation_pressed = true; 
+            operation_pressed = true;
+            equation.Text = value + " " + operation;
         }
 
         private void button_equal_Click(object sender, EventArgs e)
         {
+         
+            equation.Text = " ";
             switch (operation)
             {
                 case "+":
@@ -145,12 +149,22 @@ namespace Calculator
                     result.Text = (value * Double.Parse(result.Text)).ToString();
                     break;
                 case "/":
-                    result.Text = (value - Double.Parse(result.Text)).ToString();
+                    result.Text = (value / Double.Parse(result.Text)).ToString();
                     break;
             } //end switch 
-            operation_pressed = false;
+       
 
         }
 
+        private void button_Clear_Click(object sender, EventArgs e)
+        {
+            result.Clear();
+            value = 0;
+        }
+
+        private void result_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
